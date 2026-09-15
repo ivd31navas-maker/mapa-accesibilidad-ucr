@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Accesibilidad UCR
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+<header
+    class="hero"
+    id="inicio"
+>
+
+    <div class="hero-agua hero-agua-1"></div>
+    <div class="hero-agua hero-agua-2"></div>
+    <div class="hero-agua hero-agua-3"></div>
+
+    <div class="hero-contenido">
+
+        <div class="hero-identidad">
+
+            <div class="hero-logo-contenedor">
+
+                <img
+                    src="imagenes/logo_ucr.png"
+                    alt="Universidad de Costa Rica"
+                    class="logo-ucr"
+                >
+
+            </div>
+
+            <div class="hero-texto">
+
+                <div class="hero-etiqueta">
+                    UNIVERSIDAD DE COSTA RICA
+                </div>
+
+                <h1>
+                    Accesibilidad UCR
+                </h1>
+
+                <p>
+                    Mapa interactivo para identificar
+                    y reportar barreras de accesibilidad
+                    en el campus universitario.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="hero-mapa">
+
+            <div class="hero-mapa-brillo"></div>
+
+            <img
+                src="imagenes/mapa_ucr.jpg"
+                alt="Mapa de la Universidad de Costa Rica"
+            >
+
+        </div>
+
+        <div class="hero-iconos">
+
+            <span title="Accesibilidad física">
+                ♿
+            </span>
+
+            <span title="Accesibilidad visual">
+                👁️
+            </span>
+
+            <span title="Accesibilidad auditiva">
+                🦻
+            </span>
+
+            <span title="Accesibilidad cognitiva">
+                🧠
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="mensaje-inclusivo">
+
+        <span class="mensaje-icono">
+            ♿
+        </span>
+
+        <p>
+            Campus inclusivo,
+            <br>
+            comunidad sin barreras
+        </p>
+
+    </div>
+
+    <div class="hero-curva"></div>
+
+</header>
+
+
+<nav
+    class="navegacion"
+    id="navegacion"
+>
+
+    <a
+        href="#inicio"
+        class="nav-logo"
+        title="Volver al inicio"
+        aria-label="Volver al inicio"
+    >
+
+        <span class="nav-home-icon">
+            🦿
+        </span>
+
+    </a>
+
+    <div class="nav-enlaces">
+
+        <a
+            href="#mapa"
+            class="nav-boton"
+        >
+
+            <span class="nav-icono">
+                🗺️
+            </span>
+
+            <span>
+                Mapa
+            </span>
+
+        </a>
+
+        <a
+            href="#reportar"
+            class="nav-boton"
+        >
+
+            <span class="nav-icono">
+                ➕
+            </span>
+
+            <span>
+                Reportar
+            </span>
+
+        </a>
+
+        <a
+            href="https://palabras-sin-barrera.my.canva.site/hablemos-sin-barrera"
+            class="nav-boton"
+            target="_self"
+        >
+
+            <span class="nav-icono">
+                📚
+            </span>
+
+            <span>
+                Educación
+            </span>
+
+        </a>
+
+        <a
+            href="mantenimiento.html"
+            class="nav-boton nav-mantenimiento"
+        >
+
+            <span class="nav-icono">
+                🔧
+            </span>
+
+            <span>
+                Mantenimiento
+            </span>
+
+        </a>
+
+        <a
+            href="#proyecto"
+            class="nav-boton"
+        >
+
+            <span class="nav-icono">
+                ⓘ
+            </span>
+
+            <span>
+                Proyecto
+            </span>
+
+        </a>
+
+    </div>
+
+    <a
+        href="#inicio"
+        class="nav-discapacidad"
+        title="Volver al inicio"
+        aria-label="Volver al inicio"
+    >
+
+        ♿
+
+    </a>
+
+</nav>
+
+
+<main>
+
+
+<section
+    id="mapa"
+    class="seccion seccion-mapa"
+>
+
+    <div class="contenedor">
+
+        <div class="titulo-seccion">
+
+            <span class="etiqueta-seccion">
+                EXPLORACIÓN
+            </span>
+
+            <h2>
+                Mapa de accesibilidad
+            </h2>
+
+            <p>
+                Explora los diferentes sectores
+                de la Universidad de Costa Rica
+                e identifica posibles barreras
+                de accesibilidad.
+            </p>
+
+        </div>
+
+        <div class="filtros-mapa">
+
+            <div class="campo-filtro">
+
+                <label for="filtroEstado">
+                    Estado
+                </label>
+
+                <select id="filtroEstado">
+
+                    <option value="todos">
+                        Todos
+                    </option>
+
+                    <option value="requiere">
+                        Requiere atención
+                    </option>
+
+                    <option value="proceso">
+                        En proceso
+                    </option>
+
+                    <option value="resuelto">
+                        Resuelto
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="campo-filtro">
+
+                <label for="filtroDiscapacidad">
+                    Tipo de discapacidad
+                </label>
+
+                <select id="filtroDiscapacidad">
+
+                    <option value="todas">
+                        Todas
+                    </option>
+
+                    <option value="Movilidad">
+                        Movilidad
+                    </option>
+
+                    <option value="Visual">
+                        Visual
+                    </option>
+
+                    <option value="Auditiva">
+                        Auditiva
+                    </option>
+
+                    <option value="Cognitiva">
+                        Cognitiva
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="mapa-marco">
+
+            <div class="mapa-borde-animado"></div>
+
+            <div
+                id="map"
+                class="mapa"
+            ></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section
+    id="reportar"
+    class="seccion seccion-clara"
+>
+
+    <div class="contenedor">
+
+        <div class="titulo-seccion">
+
+            <span class="etiqueta-seccion">
+                PARTICIPACIÓN
+            </span>
+
+            <h2>
+                Reportar una barrera de accesibilidad
+            </h2>
+
+            <p>
+                Ayúdanos a identificar condiciones
+                que puedan dificultar el acceso,
+                desplazamiento o uso de los espacios
+                universitarios.
+            </p>
+
+        </div>
+
+        <form
+            id="formularioReporte"
+            class="formulario-reporte"
+        >
+
+            <div class="campo">
+
+                <label for="fincaReporte">
+                    <span class="numero-campo">1</span>
+                    Selecciona la finca
+                </label>
+
+                <select
+                    id="fincaReporte"
+                    required
+                >
+
+                    <option value="">
+                        Selecciona una finca
+                    </option>
+
+                    <option value="Finca 1">
+                        Finca 1 — Ciudad Universitaria
+                    </option>
+
+                    <option value="Finca 2">
+                        Finca 2 — Ciudad de la Investigación
+                    </option>
+
+                    <option value="Finca 3">
+                        Finca 3 — Instalaciones Deportivas
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div
+                id="contenedorEdificio"
+                class="campo"
+                style="display:none;"
+            >
+
+                <label for="ubicacion">
+
+                    <span class="numero-campo">2</span>
+
+                    Selecciona el edificio o espacio
+
+                </label>
+
+                <select
+                    id="ubicacion"
+                    required
+                >
+
+                    <option value="">
+                        Selecciona un edificio o espacio
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="campo">
+
+                <label for="elemento">
+
+                    <span class="numero-campo">3</span>
+
+                    Elemento afectado
+
+                </label>
+
+                <select
+                    id="elemento"
+                    required
+                >
+
+                    <option value="">
+                        Selecciona un elemento
+                    </option>
+
+                    <option value="Rampa">
+                        Rampa
+                    </option>
+
+                    <option value="Acera">
+                        Acera
+                    </option>
+
+                    <option value="Entrada">
+                        Entrada
+                    </option>
+
+                    <option value="Baño accesible">
+                        Baño accesible
+                    </option>
+
+                    <option value="Sendero peatonal">
+                        Sendero peatonal
+                    </option>
+
+                    <option value="Escaleras">
+                        Escaleras
+                    </option>
+
+                    <option value="Ascensor">
+                        Ascensor
+                    </option>
+
+                    <option value="Señalización">
+                        Señalización
+                    </option>
+
+                    <option value="Otro">
+                        Otro
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="campo">
+
+                <label for="discapacidad">
+
+                    <span class="numero-campo">4</span>
+
+                    Discapacidad relacionada
+
+                </label>
+
+                <select
+                    id="discapacidad"
+                    required
+                >
+
+                    <option value="">
+                        Selecciona una opción
+                    </option>
+
+                    <option value="Movilidad">
+                        Movilidad
+                    </option>
+
+                    <option value="Visual">
+                        Visual
+                    </option>
+
+                    <option value="Auditiva">
+                        Auditiva
+                    </option>
+
+                    <option value="Cognitiva">
+                        Cognitiva
+                    </option>
+
+                    <option value="Múltiple">
+                        Múltiple
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="campo">
+
+                <label for="problema">
+
+                    <span class="numero-campo">5</span>
+
+                    Describe el problema
+
+                </label>
+
+                <textarea
+                    id="problema"
+                    rows="5"
+                    placeholder="Describe la barrera de accesibilidad..."
+                    required
+                ></textarea>
+
+            </div>
+
+            <div class="campo">
+
+                <label for="impacto">
+
+                    <span class="numero-campo">6</span>
+
+                    ¿Cómo afecta la accesibilidad?
+
+                </label>
+
+                <textarea
+                    id="impacto"
+                    rows="4"
+                    placeholder="Explica cómo esta condición puede afectar el acceso o desplazamiento..."
+                    required
+                ></textarea>
+
+            </div>
+
+            <div class="campo">
+
+                <label for="recomendacion">
+
+                    <span class="numero-campo">7</span>
+
+                    Recomendación
+
+                </label>
+
+                <textarea
+                    id="recomendacion"
+                    rows="4"
+                    placeholder="Si lo deseas, indica una posible solución..."
+                ></textarea>
+
+            </div>
+
+            <div class="campo">
+
+                <label for="foto">
+
+                    <span class="numero-campo">8</span>
+
+                    Fotografía
+
+                </label>
+
+                <input
+                    type="file"
+                    id="foto"
+                    accept="image/*"
+                >
+
+                <small>
+                    La fotografía es opcional.
+                </small>
+
+            </div>
+
+            <button
+                type="submit"
+                class="boton-principal"
+            >
+
+                <span>
+                    📤
+                </span>
+
+                Enviar reporte
+
+            </button>
+
+            <div
+                id="mensajeReporte"
+                class="mensaje-formulario"
+            ></div>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<section
+    id="aprender"
+    class="seccion"
+>
+
+    <div class="contenedor">
+
+        <div class="titulo-seccion">
+
+            <span class="etiqueta-seccion">
+                APRENDIZAJE
+            </span>
+
+            <h2>
+                Educación y accesibilidad
+            </h2>
+
+            <p>
+                Conoce más sobre discapacidad,
+                accesibilidad e inclusión.
+            </p>
+
+        </div>
+
+        <div class="tarjetas-educacion">
+
+            <article class="tarjeta-educacion">
+
+                <div class="icono-educacion">
+                    ♿
+                </div>
+
+                <h3>
+                    Accesibilidad
+                </h3>
+
+                <p>
+                    La accesibilidad busca que los
+                    espacios, servicios y entornos
+                    puedan ser utilizados por todas
+                    las personas.
+                </p>
+
+            </article>
+
+            <article class="tarjeta-educacion">
+
+                <div class="icono-educacion">
+                    👁️
+                </div>
+
+                <h3>
+                    Diseño inclusivo
+                </h3>
+
+                <p>
+                    El diseño inclusivo considera
+                    las diferentes necesidades de
+                    las personas desde la planificación.
+                </p>
+
+            </article>
+
+            <article class="tarjeta-educacion">
+
+                <div class="icono-educacion">
+                    🧠
+                </div>
+
+                <h3>
+                    Conocer para incluir
+                </h3>
+
+                <p>
+                    La educación y sensibilización
+                    son elementos fundamentales
+                    para construir espacios sin barreras.
+                </p>
+
+            </article>
+
+        </div>
+
+
+        <!-- VIDEO EDUCATIVO -->
+
+        <div class="video-aprendizaje">
+
+            <div class="video-aprendizaje-cabecera">
+
+                <span class="etiqueta-seccion">
+                    VIDEO EDUCATIVO
+                </span>
+
+                <h3>
+                    Aprende más sobre accesibilidad
+                </h3>
+
+                <p>
+                    Explora este recurso audiovisual para
+                    continuar aprendiendo sobre accesibilidad
+                    e inclusión.
+                </p>
+
+            </div>
+
+            <div class="video-marco">
+
+                <iframe
+                    src="https://www.youtube.com/embed/4qgVwYTMcXM"
+                    title="Video educativo sobre accesibilidad"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                ></iframe>
+
+            </div>
+
+        </div>
+
+
+        <div class="bloque-educacion-externa">
+
+            <div class="educacion-externa-icono">
+                📚
+            </div>
+
+            <div>
+
+                <h3>
+                    ¿Quieres aprender más?
+                </h3>
+
+                <p>
+                    Visita nuestra plataforma educativa
+                    sobre accesibilidad e inclusión.
+                </p>
+
+            </div>
+
+            <a
+                href="https://palabras-sin-barrera.my.canva.site/hablemos-sin-barrera"
+                target="_self"
+                class="boton-educacion"
+            >
+
+                📚 Ir a Educación
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section
+    id="proyecto"
+    class="seccion seccion-clara"
+>
+
+    <div class="contenedor">
+
+        <div class="titulo-seccion">
+
+            <span class="etiqueta-seccion">
+                INFORMACIÓN
+            </span>
+
+            <h2>
+                Sobre el proyecto
+            </h2>
+
+        </div>
+
+        <div class="tarjeta-proyecto">
+
+            <div class="proyecto-icono">
+                🦿
+            </div>
+
+            <h3>
+                Accesibilidad UCR
+            </h3>
+
+            <p class="proyecto-descripcion">
+
+                Proyecto elaborado por Estudiantes de la
+                Universidad de Costa Rica de la carrera de
+                Ortoprótesis y Ortopedia de la Escuela de
+                Tecnologías en Salud, Esta herramienta tiene
+                como propósito apoyar la identificación y
+                visualización de condiciones relacionadas con
+                accesibilidad dentro de la Universidad de
+                Costa Rica. La plataforma permite localizar
+                espacios, consultar puntos de accesibilidad y
+                enviar reportes que pueden ser utilizados como
+                apoyo para la gestión y mantenimiento de las
+                instalaciones universitarias.
+
+            </p>
+
+            <div class="flujo-proyecto">
+
+                <div>
+
+                    <span>
+                        🗺️
+                    </span>
+
+                    <strong>
+                        Explorar
+                    </strong>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        ➕
+                    </span>
+
+                    <strong>
+                        Reportar
+                    </strong>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        🔧
+                    </span>
+
+                    <strong>
+                        Gestionar
+                    </strong>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        🟢
+                    </span>
+
+                    <strong>
+                        Resolver
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer class="pie-pagina">
+
+    <div class="pie-logo">
+
+        <img
+            src="imagenes/logo_ucr.png"
+            alt="Universidad de Costa Rica"
+        >
+
+    </div>
+
+    <div class="pie-info">
+
+        <p>
+            Accesibilidad UCR
+        </p>
+
+        <small>
+            Universidad de Costa Rica
+        </small>
+
+    </div>
+
+    <div>
+
+        <a
+            href="mantenimiento.html"
+            class="enlace-mantenimiento"
+        >
+
+            🔧 Área de mantenimiento
+
+        </a>
+
+    </div>
+
+</footer>
+
+
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+></script>
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+></script>
+
+<script src="script.js?v=3"></script>
+
+</body>
+
+</html>
