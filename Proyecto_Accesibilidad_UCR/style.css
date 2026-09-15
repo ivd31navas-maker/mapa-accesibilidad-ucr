@@ -1,0 +1,1559 @@
+:root{
+--azul-ucr:#003b5c;
+--azul-profundo:#002f4b;
+--azul-medio:#176b8c;
+--azul-claro:#72b7d2;
+--azul-pastel:#b9e0ef;
+--azul-muy-claro:#eaf7fb;
+--blanco:#ffffff;
+--gris-fondo:#f4f8fa;
+--gris-texto:#40515c;
+--gris-suave:#d9e5ea;
+--verde:#2a9d8f;
+--naranja:#f4a261;
+--rojo:#d62828;
+--sombra-suave:0 8px 25px rgba(0,59,92,0.10);
+--sombra-media:0 15px 35px rgba(0,59,92,0.16);
+--radio:18px;
+}
+
+*{
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+color:var(--gris-texto);
+background:var(--gris-fondo);
+line-height:1.6;
+}
+
+a{
+text-decoration:none;
+}
+
+
+/* =========================================================
+   ENCABEZADO
+========================================================= */
+
+.hero{
+position:relative;
+overflow:hidden;
+min-height:390px;
+background:
+linear-gradient(
+110deg,
+#79b9d0 0%,
+#a9d6e6 35%,
+#d9f0f6 68%,
+#eef9fc 100%
+);
+color:var(--azul-profundo);
+}
+
+.hero::before{
+content:"";
+position:absolute;
+inset:-80px;
+background:
+radial-gradient(
+ellipse at 20% 40%,
+rgba(255,255,255,0.45) 0%,
+rgba(255,255,255,0.12) 25%,
+transparent 55%
+);
+pointer-events:none;
+}
+
+
+/* =========================================================
+   EFECTO DE AGUA
+========================================================= */
+
+.hero-agua{
+position:absolute;
+pointer-events:none;
+border-radius:50%;
+opacity:0;
+transform:translateX(-120%) rotate(-12deg);
+transition:
+opacity 0.6s ease,
+transform 1.4s ease;
+}
+
+.hero:hover .hero-agua{
+opacity:1;
+transform:translateX(0) rotate(-12deg);
+}
+
+.hero-agua-1{
+width:110%;
+height:120px;
+top:40px;
+left:-5%;
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,0.38),
+transparent
+);
+filter:blur(12px);
+}
+
+.hero-agua-2{
+width:90%;
+height:80px;
+top:150px;
+left:10%;
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,0.28),
+transparent
+);
+filter:blur(14px);
+transition-delay:0.12s;
+}
+
+.hero-agua-3{
+width:75%;
+height:65px;
+top:245px;
+left:20%;
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,0.22),
+transparent
+);
+filter:blur(16px);
+transition-delay:0.22s;
+}
+
+
+/* =========================================================
+   CONTENIDO DEL HEADER
+========================================================= */
+
+.hero-contenido{
+position:relative;
+z-index:2;
+width:min(1200px,92%);
+margin:auto;
+min-height:340px;
+display:grid;
+grid-template-columns:1.35fr 0.8fr;
+align-items:center;
+gap:40px;
+padding:45px 0 60px;
+}
+
+.hero-identidad{
+display:flex;
+align-items:center;
+gap:28px;
+}
+
+
+/* =========================================================
+   LOGO UCR DEL HEADER
+========================================================= */
+
+.hero-logo-contenedor{
+flex-shrink:0;
+width:155px;
+height:155px;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:18px;
+border-radius:28px;
+background:rgba(255,255,255,0.30);
+border:1px solid rgba(255,255,255,0.55);
+box-shadow:
+0 12px 30px rgba(0,59,92,0.14);
+backdrop-filter:blur(8px);
+}
+
+.logo-ucr{
+width:100%;
+height:100%;
+object-fit:contain;
+filter:
+drop-shadow(
+0 5px 8px rgba(0,59,92,0.12)
+);
+}
+
+
+/* =========================================================
+   TEXTO HEADER
+========================================================= */
+
+.hero-texto{
+max-width:650px;
+}
+
+.hero-etiqueta{
+font-size:0.78rem;
+font-weight:800;
+letter-spacing:2px;
+color:var(--azul-profundo);
+margin-bottom:8px;
+}
+
+.hero h1{
+margin:0;
+font-size:clamp(2.2rem,5vw,4rem);
+line-height:1.05;
+color:var(--azul-profundo);
+}
+
+.hero p{
+margin:18px 0 0;
+max-width:620px;
+font-size:1.08rem;
+color:rgba(0,47,75,0.82);
+}
+
+
+/* =========================================================
+   MAPA DECORATIVO DEL HEADER
+========================================================= */
+
+.hero-mapa{
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:260px;
+padding:12px;
+}
+
+.hero-mapa::before{
+content:"";
+position:absolute;
+inset:8px;
+border-radius:28px;
+background:
+linear-gradient(
+135deg,
+rgba(255,255,255,0.42),
+rgba(185,224,239,0.20),
+rgba(255,255,255,0.40)
+);
+border:1px solid rgba(255,255,255,0.55);
+box-shadow:
+0 16px 35px rgba(0,59,92,0.12);
+backdrop-filter:blur(3px);
+z-index:0;
+}
+
+.hero-mapa img{
+display:block;
+position:relative;
+z-index:2;
+width:min(100%,470px);
+max-width:470px;
+max-height:270px;
+min-height:150px;
+object-fit:contain;
+border-radius:22px;
+opacity:1;
+filter:
+drop-shadow(
+0 15px 20px rgba(0,59,92,0.16)
+);
+transition:
+transform 0.6s ease,
+opacity 0.6s ease;
+}
+
+.hero:hover .hero-mapa img{
+transform:
+scale(1.035)
+translateY(-4px);
+opacity:1;
+}
+
+.hero-mapa-brillo{
+position:absolute;
+z-index:1;
+width:260px;
+height:260px;
+border-radius:50%;
+background:
+radial-gradient(
+circle,
+rgba(255,255,255,0.65),
+transparent 70%
+);
+filter:blur(10px);
+}
+
+
+/* =========================================================
+   ICONOS DEL HEADER
+========================================================= */
+
+.hero-iconos{
+position:absolute;
+z-index:3;
+bottom:30px;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+gap:12px;
+}
+
+.hero-iconos span{
+width:44px;
+height:44px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+background:rgba(255,255,255,0.50);
+border:1px solid rgba(255,255,255,0.65);
+box-shadow:
+0 5px 15px rgba(0,59,92,0.10);
+font-size:1.25rem;
+transition:
+transform 0.25s ease,
+background 0.25s ease;
+}
+
+.hero-iconos span:hover{
+transform:
+translateY(-5px)
+scale(1.08);
+background:rgba(255,255,255,0.80);
+}
+
+
+/* =========================================================
+   MENSAJE INCLUSIVO
+========================================================= */
+
+.mensaje-inclusivo{
+position:absolute;
+z-index:4;
+left:28px;
+bottom:25px;
+display:flex;
+align-items:center;
+gap:12px;
+padding:10px 16px;
+border-radius:50px;
+background:rgba(255,255,255,0.35);
+border:1px solid rgba(255,255,255,0.55);
+backdrop-filter:blur(8px);
+}
+
+.mensaje-icono{
+font-size:1.5rem;
+}
+
+.mensaje-inclusivo p{
+margin:0;
+font-size:0.82rem;
+font-weight:700;
+line-height:1.25;
+}
+
+
+/* =========================================================
+   CURVA DEL HEADER
+========================================================= */
+
+.hero-curva{
+position:absolute;
+bottom:-1px;
+left:0;
+width:100%;
+height:55px;
+background:var(--gris-fondo);
+clip-path:
+ellipse(
+65% 70% at 50% 100%
+);
+}
+
+
+/* =========================================================
+   NAVEGACIÓN
+========================================================= */
+
+.navegacion{
+position:sticky;
+top:0;
+z-index:1000;
+min-height:74px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+padding:10px 22px;
+background:rgba(255,255,255,0.96);
+border-bottom:
+1px solid rgba(0,59,92,0.10);
+box-shadow:
+0 5px 20px rgba(0,59,92,0.08);
+backdrop-filter:blur(12px);
+}
+
+
+/* =========================================================
+   HOME IZQUIERDO
+========================================================= */
+
+.nav-logo{
+flex-shrink:0;
+width:50px;
+height:50px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:15px;
+color:white;
+background:
+linear-gradient(
+135deg,
+var(--azul-ucr),
+var(--azul-medio)
+);
+box-shadow:
+0 6px 15px rgba(0,59,92,0.20);
+transition:
+transform 0.25s ease,
+box-shadow 0.25s ease;
+}
+
+.nav-logo:hover{
+transform:
+translateY(-3px)
+scale(1.04);
+box-shadow:
+0 10px 22px rgba(0,59,92,0.28);
+}
+
+.nav-home-icon{
+font-size:1.5rem;
+}
+
+
+/* =========================================================
+   ENLACES
+========================================================= */
+
+.nav-enlaces{
+flex:1;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:9px;
+}
+
+
+/* =========================================================
+   BOTONES DE NAVEGACIÓN
+========================================================= */
+
+.nav-boton{
+position:relative;
+min-height:46px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+padding:9px 16px;
+border-radius:14px;
+color:var(--azul-ucr);
+font-size:0.92rem;
+font-weight:700;
+background:transparent;
+border:1px solid transparent;
+transition:
+transform 0.25s ease,
+background 0.25s ease,
+color 0.25s ease,
+box-shadow 0.25s ease,
+border-color 0.25s ease;
+}
+
+.nav-boton:hover{
+transform:translateY(-3px);
+color:var(--azul-profundo);
+background:var(--azul-muy-claro);
+border-color:rgba(23,107,140,0.16);
+box-shadow:
+0 8px 18px rgba(0,59,92,0.12);
+}
+
+.nav-boton:active{
+transform:
+translateY(-1px)
+scale(0.98);
+}
+
+.nav-icono{
+font-size:1.1rem;
+}
+
+
+/* =========================================================
+   MANTENIMIENTO
+========================================================= */
+
+.nav-mantenimiento{
+background:
+rgba(244,162,97,0.08);
+}
+
+.nav-mantenimiento:hover{
+background:
+rgba(244,162,97,0.18);
+}
+
+
+/* =========================================================
+   HOME DERECHO
+========================================================= */
+
+.nav-discapacidad{
+flex-shrink:0;
+width:48px;
+height:48px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+background:var(--azul-muy-claro);
+color:var(--azul-ucr);
+font-size:1.4rem;
+border:
+1px solid rgba(23,107,140,0.15);
+transition:
+transform 0.25s ease,
+background 0.25s ease,
+box-shadow 0.25s ease;
+}
+
+.nav-discapacidad:hover{
+transform:
+rotate(-5deg)
+scale(1.08);
+background:var(--azul-pastel);
+box-shadow:
+0 8px 18px rgba(0,59,92,0.15);
+}
+
+
+/* =========================================================
+   SECCIONES
+========================================================= */
+
+.seccion{
+padding:90px 20px;
+}
+
+.seccion-clara{
+background:white;
+}
+
+.seccion-mapa{
+background:#eaf7fb;
+}
+
+.contenedor{
+width:min(1180px,94%);
+margin:0 auto;
+}
+
+
+/* =========================================================
+   TÍTULOS
+========================================================= */
+
+.titulo-seccion{
+max-width:780px;
+margin:0 auto 38px;
+text-align:center;
+}
+
+.etiqueta-seccion{
+display:inline-block;
+margin-bottom:10px;
+padding:5px 12px;
+border-radius:50px;
+background:var(--azul-muy-claro);
+color:var(--azul-medio);
+font-size:0.72rem;
+font-weight:800;
+letter-spacing:1.5px;
+}
+
+.titulo-seccion h2{
+margin:0 0 12px;
+color:var(--azul-ucr);
+font-size:clamp(1.9rem,4vw,2.8rem);
+line-height:1.15;
+}
+
+.titulo-seccion p{
+margin:0;
+color:#62737d;
+font-size:1rem;
+}
+
+
+/* =========================================================
+   FILTROS
+========================================================= */
+
+.filtros-mapa{
+display:grid;
+grid-template-columns:
+repeat(2,minmax(220px,300px));
+justify-content:center;
+gap:18px;
+margin-bottom:28px;
+}
+
+.campo-filtro{
+display:flex;
+flex-direction:column;
+gap:7px;
+}
+
+.campo-filtro label{
+color:var(--azul-ucr);
+font-weight:700;
+font-size:0.88rem;
+}
+
+
+/* =========================================================
+   SELECTS
+========================================================= */
+
+select{
+width:100%;
+min-height:48px;
+padding:10px 14px;
+border:
+1px solid #cbdde5;
+border-radius:13px;
+background:white;
+color:var(--gris-texto);
+font-size:0.95rem;
+outline:none;
+cursor:pointer;
+transition:
+border-color 0.25s ease,
+box-shadow 0.25s ease,
+transform 0.25s ease;
+}
+
+select:hover{
+border-color:var(--azul-claro);
+}
+
+select:focus{
+border-color:var(--azul-medio);
+box-shadow:
+0 0 0 4px rgba(23,107,140,0.12);
+}
+
+
+/* =========================================================
+   MARCO DEL MAPA
+========================================================= */
+
+.mapa-marco{
+position:relative;
+padding:5px;
+border-radius:24px;
+background:
+linear-gradient(
+135deg,
+#176b8c,
+#7ec4dc,
+#d7f0f7,
+#176b8c
+);
+background-size:300% 300%;
+animation:bordeMapa 7s ease infinite;
+box-shadow:
+0 18px 40px rgba(0,59,92,0.18);
+}
+
+.mapa-borde-animado{
+position:absolute;
+inset:-3px;
+border-radius:27px;
+background:
+linear-gradient(
+120deg,
+transparent 20%,
+rgba(0,145,190,0.65),
+rgba(150,230,250,0.95),
+transparent 80%
+);
+background-size:250% 250%;
+animation:
+movimientoBorde 5s linear infinite;
+pointer-events:none;
+z-index:0;
+}
+
+@keyframes bordeMapa{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+@keyframes movimientoBorde{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+
+/* =========================================================
+   MAPA LEAFLET
+========================================================= */
+
+.mapa{
+position:relative;
+z-index:1;
+width:100%;
+height:650px;
+border-radius:20px;
+overflow:hidden;
+background:#dceff5;
+border:
+2px solid rgba(255,255,255,0.8);
+box-shadow:
+inset 0 0 0 1px rgba(0,59,92,0.08);
+}
+
+
+/* =========================================================
+   FORMULARIO
+========================================================= */
+
+.formulario-reporte{
+width:min(850px,100%);
+margin:0 auto;
+padding:38px;
+background:white;
+border-radius:24px;
+border:
+1px solid #e0ebef;
+box-shadow:var(--sombra-suave);
+}
+
+.campo{
+margin-bottom:24px;
+}
+
+.campo label{
+display:flex;
+align-items:center;
+gap:9px;
+margin-bottom:9px;
+color:var(--azul-ucr);
+font-weight:700;
+}
+
+.numero-campo{
+width:27px;
+height:27px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+background:var(--azul-muy-claro);
+color:var(--azul-medio);
+font-size:0.78rem;
+font-weight:800;
+}
+
+textarea,
+input[type="file"]{
+width:100%;
+}
+
+textarea{
+min-height:110px;
+padding:13px 15px;
+border:
+1px solid #cbdde5;
+border-radius:13px;
+resize:vertical;
+font-family:inherit;
+font-size:0.95rem;
+outline:none;
+transition:
+border-color 0.25s ease,
+box-shadow 0.25s ease;
+}
+
+textarea:focus{
+border-color:var(--azul-medio);
+box-shadow:
+0 0 0 4px rgba(23,107,140,0.12);
+}
+
+input[type="file"]{
+padding:13px;
+border:
+1px dashed #a9c7d3;
+border-radius:13px;
+background:#f7fbfc;
+cursor:pointer;
+}
+
+.campo small{
+display:block;
+margin-top:6px;
+color:#74848c;
+}
+
+
+/* =========================================================
+   BOTÓN PRINCIPAL
+========================================================= */
+
+.boton-principal{
+width:100%;
+min-height:54px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+border:none;
+border-radius:15px;
+background:
+linear-gradient(
+135deg,
+var(--azul-ucr),
+var(--azul-medio)
+);
+color:white;
+font-size:1rem;
+font-weight:800;
+cursor:pointer;
+box-shadow:
+0 8px 18px rgba(0,59,92,0.20);
+transition:
+transform 0.25s ease,
+box-shadow 0.25s ease,
+filter 0.25s ease;
+}
+
+.boton-principal:hover{
+transform:translateY(-3px);
+box-shadow:
+0 13px 25px rgba(0,59,92,0.27);
+filter:brightness(1.05);
+}
+
+.boton-principal:active{
+transform:
+translateY(-1px)
+scale(0.99);
+}
+
+
+/* =========================================================
+   EDUCACIÓN
+========================================================= */
+
+.tarjetas-educacion{
+display:grid;
+grid-template-columns:
+repeat(3,1fr);
+gap:24px;
+}
+
+.tarjeta-educacion{
+padding:30px;
+border-radius:20px;
+background:white;
+border:
+1px solid #dfebef;
+box-shadow:var(--sombra-suave);
+transition:
+transform 0.3s ease,
+box-shadow 0.3s ease;
+}
+
+.tarjeta-educacion:hover{
+transform:translateY(-7px);
+box-shadow:var(--sombra-media);
+}
+
+.icono-educacion{
+width:60px;
+height:60px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:17px;
+background:var(--azul-muy-claro);
+font-size:1.8rem;
+margin-bottom:20px;
+}
+
+.tarjeta-educacion h3{
+margin:0 0 10px;
+color:var(--azul-ucr);
+}
+
+.tarjeta-educacion p{
+margin:0;
+color:#667781;
+}
+
+
+/* =========================================================
+   VIDEO DE APRENDIZAJE
+========================================================= */
+
+.video-aprendizaje{
+width:min(900px,100%);
+margin:42px auto 30px;
+padding:30px;
+text-align:center;
+background:
+rgba(255,255,255,0.82);
+border:
+1px solid #d8eaf0;
+border-radius:24px;
+box-shadow:var(--sombra-suave);
+}
+
+.video-aprendizaje-cabecera{
+max-width:720px;
+margin:0 auto 24px;
+}
+
+.video-aprendizaje-cabecera .etiqueta-seccion{
+margin-bottom:8px;
+}
+
+.video-aprendizaje-cabecera h3{
+margin:0 0 8px;
+color:var(--azul-ucr);
+font-size:1.55rem;
+}
+
+.video-aprendizaje-cabecera p{
+margin:0;
+color:#62737d;
+}
+
+.video-marco{
+position:relative;
+width:min(760px,100%);
+margin:0 auto;
+padding:5px;
+border-radius:22px;
+background:
+linear-gradient(
+135deg,
+#176b8c,
+#7ec4dc,
+#d7f0f7,
+#176b8c
+);
+background-size:300% 300%;
+animation:bordeMapa 7s ease infinite;
+box-shadow:
+0 15px 35px rgba(0,59,92,0.16);
+}
+
+.video-marco::before{
+content:"";
+position:absolute;
+inset:-3px;
+border-radius:25px;
+background:
+linear-gradient(
+120deg,
+transparent 20%,
+rgba(0,145,190,0.55),
+rgba(150,230,250,0.90),
+transparent 80%
+);
+background-size:250% 250%;
+animation:
+movimientoBorde 5s linear infinite;
+pointer-events:none;
+z-index:0;
+}
+
+.video-marco iframe{
+position:relative;
+z-index:1;
+display:block;
+width:100%;
+aspect-ratio:16 / 9;
+min-height:390px;
+border:0;
+border-radius:17px;
+background:#dceff5;
+}
+
+
+/* =========================================================
+   EDUCACIÓN EXTERNA
+========================================================= */
+
+.bloque-educacion-externa{
+margin-top:30px;
+padding:28px;
+display:grid;
+grid-template-columns:
+auto 1fr auto;
+align-items:center;
+gap:20px;
+border-radius:20px;
+background:
+linear-gradient(
+120deg,
+#e8f6fa,
+#f7fcfd
+);
+border:
+1px solid #d7e9ee;
+}
+
+.educacion-externa-icono{
+width:60px;
+height:60px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:17px;
+background:white;
+font-size:1.8rem;
+}
+
+.bloque-educacion-externa h3{
+margin:0 0 5px;
+color:var(--azul-ucr);
+}
+
+.bloque-educacion-externa p{
+margin:0;
+}
+
+.boton-educacion{
+min-height:48px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+padding:10px 18px;
+border-radius:13px;
+background:var(--azul-ucr);
+color:white;
+font-weight:700;
+box-shadow:
+0 7px 16px rgba(0,59,92,0.17);
+transition:
+transform 0.25s ease,
+box-shadow 0.25s ease;
+}
+
+.boton-educacion:hover{
+transform:translateY(-3px);
+box-shadow:
+0 11px 22px rgba(0,59,92,0.23);
+}
+
+
+/* =========================================================
+   PROYECTO
+========================================================= */
+
+#proyecto{
+position:relative;
+overflow:hidden;
+}
+
+#proyecto .tarjeta-proyecto{
+position:relative;
+isolation:isolate;
+max-width:900px;
+margin:0 auto;
+padding:48px;
+text-align:center;
+border:0;
+border-radius:25px;
+background:
+linear-gradient(
+135deg,
+#176b8c,
+#7ec4dc,
+#d7f0f7,
+#176b8c
+);
+background-size:300% 300%;
+animation:bordeMapa 7s ease infinite;
+box-shadow:
+0 20px 45px rgba(0,59,92,0.16);
+}
+
+#proyecto .tarjeta-proyecto::before{
+content:"";
+position:absolute;
+inset:5px;
+z-index:-1;
+border-radius:20px;
+background:#ffffff;
+}
+
+#proyecto .tarjeta-proyecto::after{
+content:"";
+position:absolute;
+inset:-3px;
+z-index:-2;
+border-radius:28px;
+background:
+linear-gradient(
+120deg,
+transparent 20%,
+rgba(0,145,190,0.60),
+rgba(150,230,250,0.92),
+transparent 80%
+);
+background-size:250% 250%;
+animation:
+movimientoBorde 5s linear infinite;
+pointer-events:none;
+}
+
+.proyecto-icono{
+width:76px;
+height:76px;
+margin:0 auto 18px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:22px;
+background:var(--azul-muy-claro);
+font-size:2rem;
+}
+
+.tarjeta-proyecto h3{
+margin:0 0 18px;
+color:var(--azul-ucr);
+font-size:1.5rem;
+}
+
+#proyecto .proyecto-descripcion{
+max-width:820px;
+margin:0 auto;
+text-align:center;
+color:#4f6672;
+line-height:1.85;
+}
+
+
+/* =========================================================
+   FLUJO DEL PROYECTO
+========================================================= */
+
+.flujo-proyecto{
+margin-top:35px;
+display:grid;
+grid-template-columns:
+repeat(4,1fr);
+gap:15px;
+}
+
+.flujo-proyecto div{
+min-height:110px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:8px;
+padding:15px;
+border-radius:17px;
+background:#f5fafc;
+border:
+1px solid #e0edf1;
+transition:
+transform 0.25s ease,
+background 0.25s ease;
+}
+
+.flujo-proyecto div:hover{
+transform:translateY(-4px);
+background:var(--azul-muy-claro);
+}
+
+.flujo-proyecto span{
+font-size:1.5rem;
+}
+
+.flujo-proyecto strong{
+color:var(--azul-ucr);
+}
+
+
+/* =========================================================
+   PIE DE PÁGINA
+========================================================= */
+
+.pie-pagina{
+display:grid;
+grid-template-columns:
+auto 1fr auto;
+align-items:center;
+gap:25px;
+padding:28px 6%;
+background:var(--azul-ucr);
+color:white;
+}
+
+.pie-logo{
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.pie-logo img{
+width:62px;
+height:62px;
+object-fit:contain;
+}
+
+.pie-info p{
+margin:0;
+font-size:1.1rem;
+font-weight:800;
+}
+
+.pie-info small{
+opacity:0.75;
+}
+
+.enlace-mantenimiento{
+display:inline-flex;
+align-items:center;
+min-height:44px;
+padding:9px 15px;
+border-radius:12px;
+background:
+rgba(255,255,255,0.12);
+color:white;
+transition:
+background 0.25s ease,
+transform 0.25s ease;
+}
+
+.enlace-mantenimiento:hover{
+background:
+rgba(255,255,255,0.20);
+transform:translateY(-2px);
+}
+
+
+/* =========================================================
+   MENSAJES
+========================================================= */
+
+.mensaje-formulario{
+margin-top:15px;
+text-align:center;
+}
+
+
+/* =========================================================
+   LEAFLET
+========================================================= */
+
+.leaflet-control-zoom{
+border:none !important;
+box-shadow:
+0 5px 15px rgba(0,59,92,0.18) !important;
+}
+
+.leaflet-control-zoom a{
+color:var(--azul-ucr) !important;
+border:none !important;
+}
+
+
+/* =========================================================
+   ANIMACIÓN MAPA
+========================================================= */
+
+@keyframes brilloMapa{
+
+0%,
+100%{
+opacity:0.5;
+}
+
+50%{
+opacity:1;
+}
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width:900px){
+
+.hero-contenido{
+grid-template-columns:1fr;
+text-align:center;
+padding-bottom:80px;
+}
+
+.hero-identidad{
+justify-content:center;
+}
+
+.hero-texto{
+max-width:600px;
+}
+
+.hero-mapa{
+min-height:220px;
+}
+
+.hero-mapa img{
+max-width:390px;
+max-height:230px;
+}
+
+.mensaje-inclusivo{
+display:none;
+}
+
+.nav-boton span:last-child{
+display:none;
+}
+
+.nav-boton{
+width:50px;
+padding:8px;
+}
+
+.nav-icono{
+font-size:1.3rem;
+}
+
+.tarjetas-educacion{
+grid-template-columns:1fr;
+}
+
+.flujo-proyecto{
+grid-template-columns:
+repeat(2,1fr);
+}
+
+.video-marco iframe{
+min-height:330px;
+}
+
+}
+
+
+/* =========================================================
+   MÓVIL
+========================================================= */
+
+@media (max-width:650px){
+
+.hero{
+min-height:500px;
+}
+
+.hero-contenido{
+width:90%;
+padding:30px 0 80px;
+gap:20px;
+}
+
+.hero-identidad{
+flex-direction:column;
+gap:18px;
+}
+
+.hero-logo-contenedor{
+width:115px;
+height:115px;
+}
+
+.hero h1{
+font-size:2.1rem;
+}
+
+.hero p{
+font-size:0.92rem;
+}
+
+.hero-mapa{
+min-height:160px;
+padding:6px;
+}
+
+.hero-mapa img{
+max-width:300px;
+max-height:170px;
+min-height:110px;
+}
+
+.hero-iconos{
+bottom:18px;
+}
+
+.navegacion{
+padding:8px 10px;
+gap:7px;
+}
+
+.nav-enlaces{
+gap:4px;
+}
+
+.nav-logo,
+.nav-discapacidad,
+.nav-boton{
+min-width:44px;
+width:44px;
+height:44px;
+min-height:44px;
+border-radius:12px;
+}
+
+.nav-logo,
+.nav-discapacidad{
+flex-shrink:0;
+}
+
+.seccion{
+padding:65px 15px;
+}
+
+.filtros-mapa{
+grid-template-columns:1fr;
+}
+
+.mapa{
+height:520px;
+}
+
+.formulario-reporte{
+padding:24px 18px;
+}
+
+.bloque-educacion-externa{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.educacion-externa-icono{
+margin:0 auto;
+}
+
+.boton-educacion{
+width:100%;
+}
+
+.video-aprendizaje{
+padding:20px 15px;
+border-radius:20px;
+}
+
+.video-marco iframe{
+min-height:210px;
+}
+
+#proyecto .tarjeta-proyecto{
+padding:38px 20px;
+}
+
+.flujo-proyecto{
+grid-template-columns:
+1fr 1fr;
+}
+
+.pie-pagina{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.pie-logo img{
+width:52px;
+height:52px;
+margin:auto;
+}
+
+.enlace-mantenimiento{
+justify-content:center;
+}
+
+}
+
+
+/* =========================================================
+   REDUCIR MOVIMIENTO
+========================================================= */
+
+@media (prefers-reduced-motion:reduce){
+
+html{
+scroll-behavior:auto;
+}
+
+*,
+*::before,
+*::after{
+animation-duration:0.01ms !important;
+animation-iteration-count:1 !important;
+transition-duration:0.01ms !important;
+}
+
+}
